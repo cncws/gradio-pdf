@@ -42,7 +42,7 @@
 	async function get_doc(value: FileData) {
 		const loadingTask = pdfjsLib.getDocument({
 			url: value.url,
-			cMapUrl: "https://huggingface.co/datasets/freddyaboulton/bucket/resolve/main/cmaps/",
+			cMapUrl: "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.2.67/cmaps/",
 			cMapPacked: true,
 		});
 		pdfDoc = await loadingTask.promise;
@@ -145,7 +145,7 @@
 			</BaseButton>
 			<div class="page-count">
 				<input type="number" style={`width: ${50 + num_digits(numPages) * 10}px`} bind:value={currentPage} on:change={handle_page_change} min={1} max={numPages}  />
-				<span style="padding: var(--size-1)"> / </span> 
+				<span style="padding: var(--size-1)"> / </span>
 				<span style="padding-right: var(--size-2); width: fit-content">{numPages}</span>
 			</div>
 			<BaseButton on:click={next_page}>
